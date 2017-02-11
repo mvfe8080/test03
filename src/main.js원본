@@ -4,22 +4,34 @@ import App from './App'
 import firebase from 'firebase'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
-import Home from './home/Home'
-import Register from './home/Register'
-import Test from './home/Test'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Tchat from './pages/Tchat'
 import store from './store'
+import Test from './pages/Test'
 
 Vue.use(VueRouter)
 Vue.use(VueMaterial)
 
 const routes = [
   {
-    path: '/',
-    component: Home
+    path: '/login',
+    component: Login
   },
   {
     path: '/register',
     component: Register
+  },
+  {
+    path: '/',
+    component: Tchat,
+    beforeEnter: (to, from, next) => {
+      if(!firebase.auth().currentUser){
+        next('/login')
+      }else{
+        next()
+      }
+    }
   },
   {
     path: '/test',
