@@ -1,5 +1,19 @@
 <template>
   <div>
+    <md-sidenav class="md-left" ref="leftSidenav">
+      <md-toolbar class="md-large">
+        <md-button class="md-icon-button" @click.native="toggleLeftSidenav">
+          <md-icon>close</md-icon>
+        </md-button>
+        <connected-user></connected-user>
+        <div class="md-toolbar-container">
+          <h3 class="md-title">Sidenav content</h3>
+        </div>
+      </md-toolbar>
+
+      <p>사이드내용</p>
+    </md-sidenav>
+
     <md-toolbar>
       <md-button class="md-icon-button" @click.native="toggleLeftSidenav">
         <md-icon>apps</md-icon>
@@ -10,35 +24,24 @@
     <div class="main-content">
       <p>본문내용</p>
     </div>
-
-    <md-sidenav class="md-left" ref="leftSidenav">
-      <md-toolbar class="md-large">
-        <md-button class="md-icon-button" @click.native="toggleLeftSidenav">
-          <md-icon>close</md-icon>
-        </md-button>
-        <div class="md-toolbar-container">
-          <h3 class="md-title">Sidenav content</h3>
-        </div>
-      </md-toolbar>
-
-      <p>사이드내용</p>
-    </md-sidenav>
-
   </div>
 </template>
 
 <script>
+import ConnectedUser from './components/sidebar/ConnectedUser'
+
 export default {
   name: 'home',
+  components: {ConnectedUser},
   methods: {
-  toggleLeftSidenav() {
-    this.$refs.leftSidenav.toggle();
+    toggleLeftSidenav() {
+      this.$refs.leftSidenav.toggle()
+    }
   }
- }
 }
 </script>
 
-<style scoped>
+<style>
 .main-content {
   padding: 16px;
 }

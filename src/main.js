@@ -4,9 +4,12 @@ import App from './App'
 import firebase from 'firebase'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
+
 import Home from './home/Home'
 import Register from './home/Register'
+import Login from './home/Login'
 import Test from './home/Test'
+
 import store from './store'
 
 Vue.use(VueRouter)
@@ -20,6 +23,10 @@ const routes = [
   {
     path: '/register',
     component: Register
+  },
+  {
+    path: '/login',
+    component: Login
   },
   {
     path: '/test',
