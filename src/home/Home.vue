@@ -7,11 +7,13 @@
         </md-button>
         <connected-user></connected-user>
         <div class="md-toolbar-container">
-          <h3 class="md-title">Sidenav content</h3>
+          <h3 class="md-title">열린 채팅</h3>
         </div>
       </md-toolbar>
 
-      <p>사이드내용</p>
+      <p>
+        <channels></channels>
+      </p>
     </md-sidenav>
 
     <md-toolbar>
@@ -29,10 +31,12 @@
 
 <script>
 import ConnectedUser from './components/sidebar/ConnectedUser'
+import Channels from './components/sidebar/Channels'
+
 
 export default {
   name: 'home',
-  components: {ConnectedUser},
+  components: { ConnectedUser, Channels },
   methods: {
     toggleLeftSidenav() {
       this.$refs.leftSidenav.toggle()
