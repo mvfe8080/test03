@@ -14,6 +14,9 @@
       <p>
         <channels></channels>
       </p>
+      <p>
+        <users></users>
+      </p>
     </md-sidenav>
 
     <md-toolbar>
@@ -24,7 +27,9 @@
     </md-toolbar>
 
     <div class="main-content">
-      <p>본문내용</p>
+      <p>
+        <messages></messages>
+      </p>
     </div>
   </div>
 </template>
@@ -32,11 +37,13 @@
 <script>
 import ConnectedUser from './components/sidebar/ConnectedUser'
 import Channels from './components/sidebar/Channels'
+import Messages from './components/messages/Messages'
+import Users from './components/sidebar/Users'
 
 
 export default {
   name: 'home',
-  components: { ConnectedUser, Channels },
+  components: { ConnectedUser, Channels, Messages, Users },
   methods: {
     toggleLeftSidenav() {
       this.$refs.leftSidenav.toggle()
